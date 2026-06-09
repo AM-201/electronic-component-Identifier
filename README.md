@@ -116,10 +116,22 @@ project/
 ### Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/electronic-component-classifier.git
+git clone https://github.com/AM-201/electronic-component-classifier.git
 
 cd electronic-component-classifier
 ```
+## Download Model
+
+The trained model is not stored in the repository due to size limitations.
+
+Download the trained model from:
+
+```bash
+https://github.com/AM-201/electronic-component-classifier/releases
+```
+
+and move it to the main folder next to "class_names.json"
+
 
 ### Install required libraries
 
