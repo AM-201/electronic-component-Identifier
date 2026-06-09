@@ -84,6 +84,7 @@ PyTorch
 
 ## Project Structure
 
+```text
 project/
 │
 ├── app.py
@@ -108,7 +109,7 @@ project/
 │
 ├── component_classifier_efficientnet_final+.pth
 └── class_names.json
-
+```
 ---
 
 ## Installation
