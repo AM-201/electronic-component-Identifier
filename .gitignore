@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environments
+venv/
+env/
+.venv/
+
+# VSCode
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Uploaded Images
+static/uploads/*
+
+# Generated GradCAM Images
+static/gradcam/*
+
+# QR Codes
+static/qr/*
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Model checkpoints
+*.pt
+*.pth
