@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Electronic Component Identifier</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header -->
+
+      <header class="hero">
+        <h1>Electronic Component Identifier</h1>
+
+        <p>
+          Upload an image or capture one using your camera to identify
+          electronic components using deep learning.
+        </p>
+      </header>
+
+      <!-- Main Content -->
+
+      <div class="main-grid">
+        <!-- Left Side -->
+
+        <section class="card">
+          <h2>Input Image</h2>
+
+          <div id="dropZone" class="drop-zone">
+            <img id="previewImage" src="" alt="Preview" style="display: none" />
+
+            <p>Drag & Drop Image Here</p>
+
+            <p class="small-text">or</p>
+
+            <div class="button-row">
+              <button id="browseBtn">Browse Image</button>
+
+              <button id="cameraBtn">Open Camera</button>
+            </div>
+
+            <input type="file" id="imageInput" accept="image/*" hidden />
+          </div>
+
+          <button id="predictBtn" class="predict-btn" style="display: none">
+            Predict Component
+          </button>
+        </section>
+
+        <!-- Results -->
+
+        <section class="card">
+          <h2>Prediction Results</h2>
+
+          <div class="result-main">
+            <h3 id="topClass">Waiting...</h3>
+
+            <p id="topConfidence">-</p>
+
+            <p id="predictionTime">-</p>
+          </div>
+
+          <div id="predictionBars"></div>
+        </section>
+      </div>
+
+      <!-- Component Info -->
+
+      <section class="card">
+        <h2>Component Information</h2>
+
+        <p id="componentDescription">No component selected.</p>
+
+        <ul id="componentUses"></ul>
+      </section>
+
+      <!-- Grad CAM -->
+
+      <section class="card">
+        <h2>Model Attention (Grad-CAM)</h2>
+
+        <p>
+          Areas highlighted indicate regions that influenced the model's
+          decision.
+        </p>
+
+        <img id="gradcamImage" src="" alt="GradCAM" style="display: none" />
+      </section>
+
+      <!-- History -->
+
+      <section class="card">
+        <div class="history-header">
+          <h2>Recent Predictions</h2>
+
+          <button id="clearHistoryBtn">Clear History</button>
+        </div>
+
+        <div id="historyContainer"></div>
+      </section>
+
+      <!-- QR Code -->
+
+      <section class="card qr-section">
+        <h2>Open on Phone</h2>
+
+        <p>Scan this QR code while connected to the same network.</p>
+
+        <img
+          src="{{ url_for('static', filename='qr/site_qr.png') }}"
+          alt="QR Code"
+          class="qr-image"
+        />
+      </section>
+
+      <!-- Footer -->
+
+      <footer class="footer">
+        <div class="footer-content">
+          <h3>Electronic Component Identifier</h3>
+
+          <!-- <p> / Academic Project</p> -->
+
+          <p>
+            Developed by
+            <strong> Eng. Ahmed M. Ahmed </strong>
+          </p>
+
+          <p class="footer-small">
+            AI-assisted development, dataset preparation, training, deployment
+            and interface integration.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Camera Modal -->
+
+    <div id="cameraModal" class="camera-modal">
+      <div class="camera-container">
+        <video id="cameraVideo" autoplay playsinline></video>
+
+        <div class="camera-overlay"></div>
+
+        <div class="camera-buttons">
+          <button id="captureBtn">Capture</button>
+
+          <button id="closeCameraBtn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

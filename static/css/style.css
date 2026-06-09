@@ -1,0 +1,435 @@
+/* =======================================================
+   Global
+======================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #0b0b12;
+  color: #e8e8f0;
+  min-height: 100vh;
+}
+
+.container {
+  width: 95%;
+  max-width: 1400px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+/* =======================================================
+   Header
+======================================================= */
+
+.hero {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  color: #b97cff;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #a7a7b3;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* =======================================================
+   Layout
+======================================================= */
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =======================================================
+   Cards
+======================================================= */
+
+.card {
+  background: #12121b;
+  border: 1px solid #25253a;
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  box-shadow: 0 0 15px rgba(140, 80, 255, 0.08);
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  color: #d6c1ff;
+}
+
+/* =======================================================
+   Drop Zone
+======================================================= */
+
+.drop-zone {
+  min-height: 320px;
+
+  border: 2px dashed #5d3ea8;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  transition: 0.25s;
+}
+
+.drop-zone.dragover {
+  border-color: #b97cff;
+
+  background: rgba(185, 124, 255, 0.08);
+}
+
+.drop-zone p {
+  margin-top: 10px;
+}
+
+.small-text {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+#previewImage {
+  max-width: 100%;
+  max-height: 250px;
+
+  border-radius: 12px;
+
+  margin-bottom: 15px;
+}
+
+/* =======================================================
+   Buttons
+======================================================= */
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+button {
+  cursor: pointer;
+
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 12px 18px;
+
+  font-weight: 600;
+
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+#browseBtn,
+#cameraBtn,
+#captureBtn,
+#closeCameraBtn,
+#clearHistoryBtn {
+  background: #6d3fe0;
+  color: white;
+}
+
+.predict-btn {
+  width: 100%;
+  margin-top: 15px;
+
+  background: #8a4dff;
+  color: white;
+
+  font-size: 1rem;
+}
+
+/* =======================================================
+   Prediction Results
+======================================================= */
+
+.result-main {
+  margin-bottom: 20px;
+}
+
+#topClass {
+  font-size: 2rem;
+  color: #b97cff;
+}
+
+#topConfidence,
+#predictionTime {
+  margin-top: 6px;
+  color: #bfbfd0;
+}
+
+/* =======================================================
+   Confidence Bars
+======================================================= */
+
+.prediction-row {
+  margin-bottom: 15px;
+}
+
+.prediction-label {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 6px;
+}
+
+.progress {
+  width: 100%;
+  height: 16px;
+
+  border-radius: 50px;
+
+  background: #25253a;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: 50px;
+
+  background: linear-gradient(90deg, #6d3fe0, #b97cff);
+}
+
+/* =======================================================
+   Component Info
+======================================================= */
+
+#componentDescription {
+  margin-bottom: 12px;
+  color: #d0d0d8;
+}
+
+#componentUses {
+  padding-left: 20px;
+}
+
+#componentUses li {
+  margin-bottom: 8px;
+}
+
+/* =======================================================
+   GradCAM
+======================================================= */
+.gradcam-section {
+    margin-top: 25px;
+}
+
+.gradcam-section h3 {
+    margin-bottom: 12px;
+}
+
+#gradcamImage {
+    display: block;
+
+    width: 100%;
+    max-width: 450px;
+
+    margin: 0 auto;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    box-shadow:
+        0 0 20px rgba(120, 70, 255, 0.25);
+
+    object-fit: contain;
+}
+
+/* =======================================================
+   History
+======================================================= */
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 15px;
+}
+
+#historyContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.history-item {
+  background: #1a1a28;
+
+  border: 1px solid #30304a;
+
+  padding: 10px 14px;
+
+  border-radius: 12px;
+
+  color: #ddd;
+}
+
+/* =======================================================
+   QR
+======================================================= */
+
+.qr-section {
+  text-align: center;
+}
+
+.qr-image {
+  width: 220px;
+  max-width: 100%;
+
+  margin-top: 15px;
+
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+/* =======================================================
+   Footer
+======================================================= */
+
+.footer {
+  margin-top: 40px;
+
+  text-align: center;
+
+  padding: 25px;
+
+  color: #aaa;
+}
+
+.footer h3 {
+  color: #b97cff;
+  margin-bottom: 8px;
+}
+
+.footer-small {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* =======================================================
+   Camera Modal
+======================================================= */
+
+.camera-modal {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.92);
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+.camera-container {
+  position: relative;
+
+  width: 90%;
+  max-width: 700px;
+}
+
+#cameraVideo {
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* =======================================================
+   Camera Overlay
+======================================================= */
+
+.camera-overlay {
+  position: absolute;
+
+  width: 55%;
+  aspect-ratio: 1/1;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border: 3px solid #b97cff;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 0 0 9999px rgba(0, 0, 0, 0.45),
+    0 0 20px rgba(185, 124, 255, 0.5);
+}
+
+/* =======================================================
+   Camera Buttons
+======================================================= */
+
+.camera-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 15px;
+}
+
+/* =======================================================
+   Scrollbar
+======================================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5d3ea8;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8a4dff;
+}
