@@ -42,7 +42,7 @@ in_features = model.classifier[1].in_features
 model.classifier[1] = nn.Sequential(nn.Dropout(p=0.5),nn.Linear(in_features, len(CLASS_NAMES)))
 
 model.load_state_dict(
-    torch.load("component_classifier_efficientnet_final+.pth", map_location=device)
+    torch.load("component_classifier_efficientnet_v1.0.pth", map_location=device)
     )
 
 model.to(device)
